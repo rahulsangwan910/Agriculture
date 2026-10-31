@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMarket | Crop Listing &amp; Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#00731e",
+              "on-tertiary-container": "#ffaec6",
+              "surface-bright": "#fbfbe2",
+              "on-tertiary-fixed": "#3e001d",
+              "primary-container": "#1b5e20",
+              "on-secondary-fixed-variant": "#005313",
+              "inverse-on-surface": "#f2f2d9",
+              tertiary: "#6b1d3d",
+              error: "#ba1a1a",
+              "surface-container-highest": "#e4e4cc",
+              "surface-container-low": "#f5f5dc",
+              outline: "#717a6d",
+              "on-secondary-fixed": "#002204",
+              surface: "#fbfbe2",
+              "on-primary-fixed": "#002203",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e4e4cc",
+              "tertiary-container": "#883454",
+              "on-surface": "#1b1d0e",
+              "primary-fixed": "#acf4a4",
+              "surface-container-high": "#eaead1",
+              "primary-fixed-dim": "#91d78a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#90d689",
+              "on-primary-fixed-variant": "#0c5216",
+              "surface-tint": "#2a6b2c",
+              "error-container": "#ffdad6",
+              "secondary-container": "#91f78e",
+              "tertiary-fixed": "#ffd9e2",
+              "tertiary-fixed-dim": "#ffb1c8",
+              "surface-dim": "#dbdcc3",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#91d78a",
+              "surface-container": "#efefd7",
+              "secondary-fixed": "#94f990",
+              background: "#fbfbe2",
+              "secondary-fixed-dim": "#78dc77",
+              "on-surface-variant": "#41493e",
+              primary: "#00450d",
+              "on-tertiary-fixed-variant": "#7a2949",
+              "outline-variant": "#c0c9bb",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1b1d0e",
+              secondary: "#006e1c",
+              "inverse-surface": "#303221",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #fbfbe2;
+        color: #1b1d0e;
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-white">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbfbe2]/80 backdrop-blur-xl dark:bg-stone-900/80 shadow-sm">
+<div class="flex justify-between items-center px-8 h-20 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#00450d] dark:text-green-500 font-['Manrope']">AgriMarket</span>
+<div class="hidden md:flex gap-6">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors font-['Manrope'] font-semibold tracking-tight" href="1.html">Dashboard</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors font-['Manrope'] font-semibold tracking-tight" href="2.html">Mandi Finder</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors font-['Manrope'] font-semibold tracking-tight" href="5.html">Price Tracker</a>
+<a class="text-[#00450d] dark:text-green-400 border-b-2 border-[#00450d] pb-1 font-['Manrope'] font-semibold tracking-tight" href="4.html">Listings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#00450d]" data-icon="translate">translate</span>
+<span class="font-semibold text-green-900">Hindi/English</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary-container">
+<img alt="Farmer User Profile" data-alt="portrait of a modern proud indian farmer smiling in a sunlit field wearing traditional yet clean attire editorial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWWW-HQuXVwPeZEKFQbslYrAUKNd8wFgsGMJQ_sOSquvcOPwXfr5oUry0uXu_s3_3MJ5C0aTc934GFuwWr2EOKEYmhs8_TA-ycoRPZmj3OQ6YpTodUS8VUUtT9AoxvVFMkFomzwzdvV-YVNl4Q67IW1UZws_yqalbA2PbXdXPdHZ9FgxWLxq_FX9uYsywc9ovKkyk0HCjYe81dOP0HyMSudI_z2BT-4wowm-xnOoBBtzHuxSpiDOXvFK-VqVCvzTTmhePRYB5N294"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Shared Component) - Hidden on Mobile -->
+<aside class="hidden lg:flex h-screen w-64 fixed left-0 top-0 bg-[#fbfbe2] dark:bg-stone-950 shadow-[12px_0_32px_rgba(27,29,14,0.04)] z-40 flex-col py-8 pl-4 pr-0">
+<div class="mb-10 pl-4">
+<h2 class="font-['Manrope'] font-bold text-xl text-[#00450d]">
+          Digital Agronomist
+        </h2>
+<p class="text-xs text-stone-500 font-['Inter'] tracking-wide">
+          Haryana Regional Desk
+        </p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 py-3 pl-4 text-stone-600 hover:translate-x-1 transition-transform font-['Inter'] text-sm tracking-wide" href="1.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 pl-4 text-stone-600 hover:translate-x-1 transition-transform font-['Inter'] text-sm tracking-wide" href="2.html">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span>Mandi Finder</span>
+</a>
+<a class="flex items-center gap-4 py-3 pl-4 text-stone-600 hover:translate-x-1 transition-transform font-['Inter'] text-sm tracking-wide" href="5.html">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Price Tracker</span>
+</a>
+<a class="flex items-center gap-4 py-3 pl-4 bg-[#1B5E20] text-white rounded-l-full font-bold shadow-lg font-['Inter'] text-sm tracking-wide" href="4.html">
+<span class="material-symbols-outlined" data-icon="agriculture" style='font-variation-settings: "FILL" 1'>agriculture</span>
+<span>Listings</span>
+</a>
+</nav>
+<div class="mt-auto pl-4 pr-4 space-y-4">
+<button class="w-full bg-primary py-3 rounded-xl text-white font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+          List New Crop
+        </button>
+<div class="pt-6 border-t border-stone-200/30">
+<a class="flex items-center gap-4 py-2 text-stone-500 hover:text-primary transition-colors text-sm" href="5.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 pt-24 pb-24 lg:pb-8 px-4 lg:px-12 min-h-screen">
+<!-- Header Section with Asymmetry -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase block">Marketplace Management</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style='font-variation-settings: "FILL" 1'>verified</span>
+              VERIFIED SELLER
+            </span>
+</div>
+<h1 class="text-4xl lg:text-5xl font-['Manrope'] font-extrabold text-on-surface leading-tight">
+            Your Haryana Harvest <br/><span class="text-secondary italic font-normal">Active Inventory</span>
+</h1>
+<p class="mt-4 text-on-surface-variant font-body leading-relaxed max-w-lg">
+            Manage detailed crop metrics, moisture levels, and localized quality
+            grading for Rohtak &amp; Karnal Mandis.
+          </p>
+</div>
+<div>
+<button class="group flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle" style='font-variation-settings: "FILL" 1'>add_circle</span>
+<span>List New Harvest</span>
+</button>
+</div>
+</header>
+<!-- Listing Performance Bento Grid -->
+<section class="mb-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Performance Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col gap-6 relative overflow-hidden group">
+<div class="z-10">
+<div class="flex items-center justify-between mb-2">
+<span class="text-on-surface-variant font-medium text-sm">Haryana Market Reach</span>
+<span class="text-primary bg-primary-fixed px-2 py-1 rounded text-[10px] font-bold">+18%</span>
+</div>
+<div class="text-4xl font-headline font-black text-primary">
+                2,140
+              </div>
+<div class="mt-4">
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 font-medium">
+                  Top interest from: Karnal &amp; Panipat
+                </p>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-9xl" data-icon="monitoring">monitoring</span>
+</div>
+</div>
+<!-- Performance Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col gap-6 relative overflow-hidden group">
+<div class="z-10">
+<div class="flex items-center justify-between mb-2">
+<span class="text-on-surface-variant font-medium text-sm">Active Bids</span>
+<span class="text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-1 rounded text-[10px] font-bold">Priority</span>
+</div>
+<div class="text-4xl font-headline font-black text-primary">
+                31
+              </div>
+<div class="mt-4">
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[55%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 font-medium">
+                  Highest offer: ₹2,450 (Karnal)
+                </p>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-9xl" data-icon="payments">payments</span>
+</div>
+</div>
+<!-- High-End Editorial Moment -->
+<div class="bg-primary-container p-8 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center text-on-primary">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="verified_user" style='font-variation-settings: "FILL" 1'>verified_user</span>
+<h3 class="font-headline text-xl font-bold mb-2">
+              Elite Haryana Farmer
+            </h3>
+<p class="text-on-primary-container text-xs leading-relaxed opacity-90">
+              Your 100% fulfillment rate in the last 3 harvests grants you
+              priority listing status.
+            </p>
+</div>
+</div>
+</section>
+<!-- Main Listing Management Table Area -->
+<section class="bg-surface-container-low rounded-3xl p-1 lg:p-8">
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1000px]">
+<thead>
+<tr class="bg-surface-container-high/50 border-none">
+<th class="px-8 py-6 text-xs uppercase tracking-widest font-bold text-on-surface-variant">
+                  Crop &amp; Quality Metrics
+                </th>
+<th class="px-8 py-6 text-xs uppercase tracking-widest font-bold text-on-surface-variant">
+                  Quantity &amp; Origin
+                </th>
+<th class="px-8 py-6 text-xs uppercase tracking-widest font-bold text-on-surface-variant">
+                  Current Mandi Rate
+                </th>
+<th class="px-8 py-6 text-xs uppercase tracking-widest font-bold text-on-surface-variant">
+                  Expected Price
+                </th>
+<th class="px-8 py-6 text-xs uppercase tracking-widest font-bold text-on-surface-variant text-right">
+                  Management
+                </th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1: Sharbati Wheat -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-md flex-shrink-0">
+<img alt="Sharbati Wheat Grain" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYTMM8Jni1pktqEkJy4PAJs79OyM_9YkcFXPYSQHQqTkHuDwt64g3-_hWpqvX_VIY6XvSnAc4UU-4cp5Xz75szDckOBA_D3b3ml04zfhyP5XX-kCn1jBBGElof0gbOFoj8nVAUM1tZTmF3oStHNBJ02dXEY0k7j66vKguAfhYlo79ZqfG5Fct6W9PsJUSBrq8-GqIZvuat7jnpo1-u9rQNWg4R6jHXVGgVjWfTnjftxdEV_1oZnB4_PBWscIRpygopwqEzhM2AC10"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface flex items-center gap-2">
+                        Sharbati Wheat
+                        <span class="px-1.5 py-0.5 bg-green-100 text-green-700 text-[9px] font-bold rounded uppercase">Grade A+</span>
+</h4>
+<div class="mt-1 flex flex-col gap-1">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+                          Moisture: 11.2%
+                        </span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                          Harvested: 05 Oct 2023
+                        </span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<div>
+<span class="font-headline font-bold text-lg text-on-surface block">85 Quintals</span>
+<span class="text-[10px] font-medium text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                      Rohtak, Haryana
+                    </span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-stone-500">₹2,280</span>
+<span class="text-[10px] text-green-600 font-bold">↑ +₹40 today</span>
+<span class="text-[9px] text-on-surface-variant uppercase">Karnal Mandi Rate</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="bg-primary-container/10 p-3 rounded-xl border border-primary-container/20">
+<span class="font-headline font-bold text-xl text-primary block">₹2,350</span>
+<span class="text-[10px] text-on-surface-variant font-medium">/quintal</span>
+<span class="block mt-1 px-2 py-0.5 bg-secondary text-white text-[8px] font-bold rounded-full w-fit">MATCHED</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex items-center justify-end gap-3">
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary-container hover:text-white transition-all flex items-center justify-center" title="Edit Metrics">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-secondary hover:text-white transition-all flex items-center justify-center" title="Mark as Sold">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Delete">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Basmati Rice -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-md flex-shrink-0">
+<img alt="Long Grain Basmati" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiA_4Gae4OSYgK0xmfoDw4Xj2505VeOSn3WAr2ulxx3uKqYc77ZYA_0qyN4_FfW5Cu0GrPrFW1bTaEDEDYrkKr3cvQR6MoCyEED8Zh2WFjMuAgBxpWXHWgNL55lPvCZ1nECQqy9bWHhoBvjy6ynCDUARHXrY3LNsskhmVg3oUJvkl8OWSPdEyRAliZPgLZ83AbUiulfzzxE_MH2HzWgafLwAzuOezxsE1lnY1Us23UOfLS3fcJFxBylYQ-a19gQ7YPCa1DBQjne8E"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface flex items-center gap-2">
+                        Basmati Rice (1121)
+                        <span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 text-[9px] font-bold rounded uppercase">Grade B+</span>
+</h4>
+<div class="mt-1 flex flex-col gap-1">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+                          Moisture: 13.5%
+                        </span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">straighten</span>
+                          Avg Length: 8.2mm
+                        </span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<div>
+<span class="font-headline font-bold text-lg text-on-surface block">150 Quintals</span>
+<span class="text-[10px] font-medium text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                      Karnal, Haryana
+                    </span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-stone-500">₹4,420</span>
+<span class="text-[10px] text-red-600 font-bold">↓ -₹15 today</span>
+<span class="text-[9px] text-on-surface-variant uppercase">Panipat Mandi Rate</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant/30">
+<span class="font-headline font-bold text-xl text-on-surface block">₹4,600</span>
+<span class="text-[10px] text-on-surface-variant font-medium">/quintal</span>
+<span class="block mt-1 px-2 py-0.5 bg-stone-200 text-stone-600 text-[8px] font-bold rounded-full w-fit uppercase">Reviewing</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex items-center justify-end gap-3">
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary-container hover:text-white transition-all flex items-center justify-center" title="Edit">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-secondary hover:text-white transition-all flex items-center justify-center" title="Mark as Sold">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Delete">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Yellow Mustard -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-md flex-shrink-0">
+<img alt="Mustard Seeds" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-nt5wy4-W2DNUgJZmq2bTM5FN61gXI_3iT5Tz3duaqxomhsJ-pl8SwI9edsXSXI8mR67FhQD2G9LvI_8yyGldkI9LoxCqtVecv6pthe8TwnZEYhlLV1wKLnCkjONqIdRswxQMpVDrXVD-m8pi7BiJH_B_BfjRGn3NcBnqTqaLMfqJj2uyUgXxh_TFWyx5ELDZVop3JqFCPMcLEkj2rG0-3EKmfJydMqpoDpp_502N4J6qnVoBEPFaDFgOtrGITmSa8Q665eaqlWA"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface flex items-center gap-2">
+                        Yellow Mustard
+                        <span class="px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[9px] font-bold rounded uppercase">Premium</span>
+</h4>
+<div class="mt-1 flex flex-col gap-1">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">opacity</span>
+                          Oil Content: 42%
+                        </span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">grain</span>
+                          Foreign Matter: 0.8%
+                        </span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<div>
+<span class="font-headline font-bold text-lg text-on-surface block">40 Quintals</span>
+<span class="text-[10px] font-medium text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                      Bhiwani, Haryana
+                    </span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-stone-500">₹5,450</span>
+<span class="text-[10px] text-green-600 font-bold">↑ +₹120 today</span>
+<span class="text-[9px] text-on-surface-variant uppercase">Rewari Mandi Rate</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="bg-secondary-container/20 p-3 rounded-xl border border-secondary/20">
+<span class="font-headline font-bold text-xl text-secondary block">₹5,600</span>
+<span class="text-[10px] text-on-surface-variant font-medium">/quintal</span>
+<span class="block mt-1 px-2 py-0.5 bg-green-600 text-white text-[8px] font-bold rounded-full w-fit uppercase">Live</span>
+</div>
+</td>
+<td class="px-8 py-8">
+<div class="flex items-center justify-end gap-3">
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary-container hover:text-white transition-all flex items-center justify-center" title="Edit">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-secondary hover:text-white transition-all flex items-center justify-center" title="Mark as Sold">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Delete">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State / Add Action (Subtle) -->
+<div class="mt-8 border-2 border-dashed border-outline-variant rounded-2xl py-12 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-3" data-icon="playlist_add">playlist_add</span>
+<p class="text-on-surface-variant font-medium">
+            Expanding your harvest?
+          </p>
+<button class="mt-4 text-primary font-bold hover:underline flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+            Add Detailed Listing for Haryana Mandis
+          </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component) - Mobile Only -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbfbe2]/90 backdrop-blur-md dark:bg-stone-900/90 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t border-stone-200/30">
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="1.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-medium font-['Inter']">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="2.html">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-medium font-['Inter']">Mandi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="5.html">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-[10px] font-medium font-['Inter']">Prices</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1B5E20] text-white rounded-2xl px-6 py-2 transition-all" href="4.html">
+<span class="material-symbols-outlined" data-icon="add_circle" style='font-variation-settings: "FILL" 1'>add_circle</span>
+<span class="text-[10px] font-medium font-['Inter']">Sell</span>
+</a>
+</nav>
+<script defer="" src="agri-market.js"></script></body>
+</html>

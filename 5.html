@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMarket | Haryana Market Authority Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#00731e",
+              "on-tertiary-container": "#ffaec6",
+              "surface-bright": "#fbfbe2",
+              "on-tertiary-fixed": "#3e001d",
+              "primary-container": "#1b5e20",
+              "on-secondary-fixed-variant": "#005313",
+              "inverse-on-surface": "#f2f2d9",
+              tertiary: "#6b1d3d",
+              error: "#ba1a1a",
+              "surface-container-highest": "#e4e4cc",
+              "surface-container-low": "#f5f5dc",
+              outline: "#717a6d",
+              "on-secondary-fixed": "#002204",
+              surface: "#fbfbe2",
+              "on-primary-fixed": "#002203",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e4e4cc",
+              "tertiary-container": "#883454",
+              "on-surface": "#1b1d0e",
+              "primary-fixed": "#acf4a4",
+              "surface-container-high": "#eaead1",
+              "primary-fixed-dim": "#91d78a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#90d689",
+              "on-primary-fixed-variant": "#0c5216",
+              "surface-tint": "#2a6b2c",
+              "error-container": "#ffdad6",
+              "secondary-container": "#91f78e",
+              "tertiary-fixed": "#ffd9e2",
+              "tertiary-fixed-dim": "#ffb1c8",
+              "surface-dim": "#dbdcc3",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#91d78a",
+              "surface-container": "#efefd7",
+              "secondary-fixed": "#94f990",
+              background: "#fbfbe2",
+              "secondary-fixed-dim": "#78dc77",
+              "on-surface-variant": "#41493e",
+              primary: "#00450d",
+              "on-tertiary-fixed-variant": "#7a2949",
+              "outline-variant": "#c0c9bb",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1b1d0e",
+              secondary: "#006e1c",
+              "inverse-surface": "#303221",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #fbfbe2;
+        color: #1b1d0e;
+      }
+      .chart-bar {
+        transition: height 1s ease-in-out;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-fixed selection:text-primary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbfbe2]/80 backdrop-blur-xl shadow-sm h-20 flex justify-between items-center px-8 max-w-[1920px] mx-auto border-b border-stone-200/20">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black text-[#00450d] font-headline">AgriMarket
+          <span class="text-secondary text-sm align-top font-bold ml-1">HR</span></span>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-headline font-semibold tracking-tight text-stone-600 hover:text-[#00450d] transition-colors" href="5.html">State Dashboard</a>
+<a class="font-headline font-semibold tracking-tight text-stone-600 hover:text-[#00450d] transition-colors" href="2.html">District Mandis</a>
+<a class="font-headline font-semibold tracking-tight text-[#00450d] border-b-2 border-[#00450d] pb-1" href="5.html">Haryana Price Index</a>
+<a class="font-headline font-semibold tracking-tight text-stone-600 hover:text-[#00450d] transition-colors" href="5.html">Bulk Verifications</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2 p-1 bg-surface-container-low rounded-lg">
+<button class="px-3 py-1 text-xs font-semibold bg-primary text-white rounded-md">
+            EN
+          </button>
+<button class="px-3 py-1 text-xs font-semibold text-on-surface-variant hover:bg-stone-200/50 rounded-md">
+            HR
+          </button>
+</div>
+<button class="p-2 hover:bg-stone-100/50 rounded-lg active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-stone-200">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-on-surface leading-none">
+              Haryana Authority
+            </p>
+<p class="text-[10px] text-on-surface-variant mt-1 uppercase tracking-widest">
+              Regional Admin
+            </p>
+</div>
+<img alt="Farmer User Profile" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV9pYLXG7huz7-Rh4vQbCLoBsUAaDaQV_ocmIMrMWUCvCDlv2A20PQBgg41n0-zlLyIZWnNHiJgnW_Cs-2dG2n6Fw--zlWB9SOlQem9eqv3GEmMYo8oAaC6hCj3o1IE8qtw7fTJQLWOoZn4doSZfKkueNaTW5tsNfdJ-lI9yr8CLid84InDCOjLCZcymJW3o9QoTKYL85LoRVAlF-X0-377v-8ULVQqIG2u3TRgO0kTJ337L-bQgd6yIBPF4kXStMYKdDX8yc8BLM"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-24 pb-8 pl-4 pr-0 flex flex-col bg-[#fbfbe2] shadow-[12px_0_32px_rgba(27,29,14,0.04)] hidden lg:flex z-40">
+<div class="mb-8 px-4">
+<h2 class="font-headline font-bold text-xl text-[#00450d]">
+          Haryana Portal
+        </h2>
+<p class="text-xs text-on-surface-variant font-medium tracking-wide">
+          Market Management Unit
+        </p>
+</div>
+<div class="flex-grow space-y-1">
+<a class="flex items-center gap-3 py-3 px-6 text-stone-600 hover:translate-x-1 transition-transform font-body text-sm tracking-wide" href="5.html">
+<span class="material-symbols-outlined">dashboard</span> Overview
+        </a>
+<a class="flex items-center gap-3 py-3 px-6 text-stone-600 hover:translate-x-1 transition-transform font-body text-sm tracking-wide" href="2.html">
+<span class="material-symbols-outlined">location_on</span> Mandi
+          Network
+        </a>
+<a class="flex items-center gap-3 py-3 px-6 bg-[#1B5E20] text-white rounded-l-full font-bold shadow-lg font-body text-sm tracking-wide" href="5.html">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1'>trending_up</span>
+          Price Management
+        </a>
+<a class="flex items-center gap-3 py-3 px-6 text-stone-600 hover:translate-x-1 transition-transform font-body text-sm tracking-wide" href="5.html">
+<span class="material-symbols-outlined">group</span> HR User Verify
+        </a>
+<a class="flex items-center gap-3 py-3 px-6 text-stone-600 hover:translate-x-1 transition-transform font-body text-sm tracking-wide" href="5.html">
+<span class="material-symbols-outlined">analytics</span> Yield
+          Forecast
+        </a>
+</div>
+<div class="mt-auto px-4 space-y-4">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold text-sm shadow-md hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">assignment</span>
+          Generate Report
+        </button>
+<div class="pt-4 border-t border-stone-200/50 space-y-1">
+<a class="flex items-center gap-3 py-2 px-4 text-stone-600 text-sm" href="5.html">
+<span class="material-symbols-outlined text-xl">settings</span>
+            System Config
+          </a>
+<a class="flex items-center gap-3 py-2 px-4 text-stone-600 text-sm" href="5.html">
+<span class="material-symbols-outlined text-xl">help</span> HR
+            Support
+          </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-24 px-8 min-h-screen">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Hero Stats / Editorial Header -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="max-w-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-black rounded uppercase tracking-widest">Official State Node</span>
+<span class="text-secondary font-bold tracking-widest text-[10px] uppercase block">Haryana Market Authority</span>
+</div>
+<h1 class="font-headline text-4xl font-extrabold text-on-surface leading-tight">
+              Statewide Price Control &amp; District Verification
+            </h1>
+<p class="text-on-surface-variant mt-2 font-body italic">
+              Unified portal for Sirsa, Karnal, Hisar and 22 other district
+              Mandis.
+            </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/15 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">
+                  HR Wheat Avg (Today)
+                </p>
+<p class="text-xl font-headline font-black text-primary">
+                  ₹2,275
+                  <span class="text-[10px] text-green-600 font-bold ml-1">+1.2%</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Price Management & State Visualizer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Price Controls & Charts -->
+<div class="lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/15 shadow-sm">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline font-bold text-xl text-on-surface">
+                    Price Trend Across Major Mandis
+                  </h3>
+<p class="text-xs text-on-surface-variant">
+                    Real-time fluctuations in Mustard &amp; Wheat indices
+                  </p>
+</div>
+<select class="bg-surface-container-low border-0 rounded-lg text-xs font-bold py-1 px-3 focus:ring-1 focus:ring-primary">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<!-- Simplified modern Bar Chart visualization -->
+<div class="h-48 flex items-end justify-between gap-2 mb-4 px-2">
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[65%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Karnal</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[85%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Sirsa</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[45%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Hisar</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[70%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Rohtak</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[92%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Ambala</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-1000 h-[55%] group-hover:brightness-125"></div>
+</div>
+<span class="text-[9px] font-bold text-stone-500 uppercase">Jind</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/15">
+<div class="p-6 flex justify-between items-center bg-stone-50/50 border-b border-stone-100">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface">
+                    Daily Mandi Feed - Price Update
+                  </h3>
+<p class="text-xs text-on-surface-variant">
+                    Update procurement rates for Haryana State Mandis
+                  </p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-full">STATE LIVE</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface text-[10px] font-bold rounded-full uppercase">Nov 02, 2023</span>
+</div>
+</div>
+<div class="divide-y divide-stone-100">
+<!-- Crop Row 1 -->
+<div class="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-stone-50/50 transition-colors">
+<div class="md:col-span-3 flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">grain</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">
+                        Basmati Paddy
+                      </p>
+<p class="text-[10px] text-on-surface-variant uppercase font-medium">
+                        State Specialty
+                      </p>
+</div>
+</div>
+<div class="md:col-span-9 grid grid-cols-3 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">Min Rate</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold" placeholder="₹3,800" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">Max Rate</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold" placeholder="₹4,450" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">HR Avg</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold" placeholder="₹4,125" type="text"/>
+</div>
+</div>
+</div>
+<!-- Crop Row 2 -->
+<div class="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-stone-50/50 transition-colors">
+<div class="md:col-span-3 flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">
+                        Mustard (HR-1)
+                      </p>
+<p class="text-[10px] text-on-surface-variant uppercase font-medium">
+                        Oilseeds
+                      </p>
+</div>
+</div>
+<div class="md:col-span-9 grid grid-cols-3 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">Min Rate</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold text-primary" placeholder="₹5,400" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">Max Rate</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold text-primary" placeholder="₹6,100" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-stone-400 mb-1 uppercase px-2">HR Avg</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary font-bold text-primary" placeholder="₹5,850" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-stone-50 flex justify-end gap-4">
+<button class="px-8 py-3 text-stone-600 font-bold hover:text-stone-900 transition-colors text-sm">
+                  Save as Local Draft
+                </button>
+<button class="px-10 py-3 bg-primary text-white font-headline font-extrabold rounded-2xl shadow-xl hover:translate-y-[-2px] active:translate-y-0 transition-all text-sm">
+                  Submit to State Exchange
+                </button>
+</div>
+</div>
+</div>
+<!-- Side Panel: Haryana Verification & System Health -->
+<div class="lg:col-span-4 space-y-8">
+<!-- User Verification Localized -->
+<div class="bg-surface-container-low rounded-3xl p-6 relative overflow-hidden group border border-outline-variant/10 shadow-sm">
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline font-bold text-xl text-primary">
+                    District Verification
+                  </h3>
+<span class="bg-primary/10 text-primary text-[9px] px-2 py-1 rounded font-black">24H QUEUE</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6">
+                  Pending trader/farmer verifications for Haryana districts.
+                </p>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE3nznv7xM_0QLo6-HzpkOPtqLQ-zSEscMQ1p86sOzFphtcvAwrvSAGv4oaE9qO9ifYL42EqWlT3YCXIq6EyQSNTzgN9wCmcSFVdSkXyYauku5t9ZGqv5neYKtKrv3lUOH7KQks419kKOevKlmz-p-e5eFWnNpO01l1tJwfW_e1RajLo2M7usg_tCEKCpdpnE_fub1sB1R4l8p3pRgSFl6OMIwG3u1hANk7RarxIQjJpYHGeVbIxK-ubE220T8qEA9vPCOK_UVk3g"/>
+<div>
+<p class="text-sm font-bold text-on-surface">
+                          Manjit Dhillon
+                        </p>
+<p class="text-[10px] text-on-secondary-container font-semibold uppercase">
+                          Farmer • Sirsa District
+                        </p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-red-50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-green-50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center font-bold text-xs">
+                        SK
+                      </div>
+<div>
+<p class="text-sm font-bold text-on-surface">
+                          Sunil Kumar
+                        </p>
+<p class="text-[10px] text-tertiary-container font-semibold uppercase">
+                          Trader • Karnal Mandi
+                        </p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-red-50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-green-50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0iu_RSjmZq3MD4Dg8KZMx2ZBx8ObYcgbAf5jIErzIoB_X-t_wB3v5p1l2JqsNUPYtW5rRwpHIoRy8UfKyErpFYxgnAWaMMXOC9SowjD9pClJpPG-Bu5HsO6987L8xl_DN33Ssh1Whn_ADw3foePBK1TthUfyDLe7a6ds-OPCUUjgA6E1llObeCUMRtheoJnAAkMR_2gBUC9UVVB_-13ljA7iOX-UyeBY-yQuAXnTMNrTFnWhp4TMwdQSnb6EUJ9gS3XH-n-nfOdA"/>
+<div>
+<p class="text-sm font-bold text-on-surface">
+                          Pawan Yadav
+                        </p>
+<p class="text-[10px] text-on-secondary-container font-semibold uppercase">
+                          Farmer • Gurugram
+                        </p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-red-50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-green-50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-primary font-bold text-sm border-2 border-primary/20 rounded-xl hover:bg-primary/5 transition-colors">
+                  Manage All HR Tradelinks
+                </button>
+</div>
+</div>
+<!-- System Health Dashboard -->
+<div class="bg-[#1B5E20] rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-6">
+<span class="text-[10px] font-black tracking-widest opacity-60">SYSTEM HEALTH NODE</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold">STABLE</span></span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-5xl font-headline font-black">99.98%</span>
+<span class="text-[10px] font-bold mb-2">UPTIME</span>
+</div>
+<div class="mt-8 space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-bold uppercase opacity-80">
+<span>Mandi API Latency</span>
+<span>42ms</span>
+</div>
+<div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-white/60 w-[95%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-bold uppercase opacity-80">
+<span>Verification Engine</span>
+<span>Active</span>
+</div>
+<div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-white/60 w-[88%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">dynamic_form</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbfbe2]/90 backdrop-blur-md border-t border-stone-200/30 z-50">
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="5.html">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium font-body mt-1">HR Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="2.html">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium font-body mt-1">Districts</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1B5E20] text-white rounded-2xl px-6 py-2" href="5.html">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-medium font-body mt-1">Indices</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="5.html">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-[10px] font-medium font-body mt-1">Verify</span>
+</a>
+</nav>
+<!-- Contextual FAB -->
+<button class="fixed right-8 bottom-8 md:bottom-12 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center group active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
+</button>
+<script defer="" src="agri-market.js"></script></body>
+</html>

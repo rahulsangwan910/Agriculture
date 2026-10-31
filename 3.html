@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMarket | Premium Haryana Produce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#00731e",
+              "on-tertiary-container": "#ffaec6",
+              "surface-bright": "#fbfbe2",
+              "on-tertiary-fixed": "#3e001d",
+              "primary-container": "#1b5e20",
+              "on-secondary-fixed-variant": "#005313",
+              "inverse-on-surface": "#f2f2d9",
+              tertiary: "#6b1d3d",
+              error: "#ba1a1a",
+              "surface-container-highest": "#e4e4cc",
+              "surface-container-low": "#f5f5dc",
+              outline: "#717a6d",
+              "on-secondary-fixed": "#002204",
+              surface: "#fbfbe2",
+              "on-primary-fixed": "#002203",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e4e4cc",
+              "tertiary-container": "#883454",
+              "on-surface": "#1b1d0e",
+              "primary-fixed": "#acf4a4",
+              "surface-container-high": "#eaead1",
+              "primary-fixed-dim": "#91d78a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#90d689",
+              "on-primary-fixed-variant": "#0c5216",
+              "surface-tint": "#2a6b2c",
+              "error-container": "#ffdad6",
+              "secondary-container": "#91f78e",
+              "tertiary-fixed": "#ffd9e2",
+              "tertiary-fixed-dim": "#ffb1c8",
+              "surface-dim": "#dbdcc3",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#91d78a",
+              "surface-container": "#efefd7",
+              "secondary-fixed": "#94f990",
+              background: "#fbfbe2",
+              "secondary-fixed-dim": "#78dc77",
+              "on-surface-variant": "#41493e",
+              primary: "#00450d",
+              "on-tertiary-fixed-variant": "#7a2949",
+              "outline-variant": "#c0c9bb",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1b1d0e",
+              secondary: "#006e1c",
+              "inverse-surface": "#303221",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fbfbe2;
+        color: #1b1d0e;
+      }
+      .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2.5rem;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbfbe2]/80 backdrop-blur-xl shadow-sm border-b border-stone-200/20">
+<div class="flex justify-between items-center px-8 h-20 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black text-[#00450d] font-headline tracking-tighter">
+          AgriMarket
+        </div>
+<div class="hidden md:flex space-x-8 font-headline font-semibold tracking-tight">
+<a class="text-stone-600 hover:text-[#00450d] transition-colors" href="1.html">Dashboard</a>
+<a class="text-stone-600 hover:text-[#00450d] transition-colors" href="2.html">Mandi Finder</a>
+<a class="text-stone-600 hover:text-[#00450d] transition-colors" href="5.html">Price Tracker</a>
+<a class="text-[#00450d] border-b-2 border-[#00450d] pb-1" href="3.html">Marketplace</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2 text-primary font-semibold cursor-pointer px-3 py-1 rounded-lg hover:bg-stone-100/50">
+<span class="material-symbols-outlined">translate</span>
+<span class="text-sm">English</span>
+</div>
+<div class="relative cursor-pointer">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Buyer Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8w0Puh9kRsCkIglAquFCDEQMlYDUBRb-CNPXgktt1lbCIh7iwFS1TfGKrx-YcqmPggG4GOh9bG35PKoVTR7ZOBtlH0p1o28n6-RawKqELRdMZmptPp5QjL2cjEMUFfApI13upI7hKdbRSKb3ejWQglCidr2QAWbq2LWIE0P0u7RAnH6js6n3Pqke-88UFS02BgpxO7aul-ZwTUcKixaLbug_eZd2dkhKlByaC6dRJbDOcqLtGI_8NoQA5agqFZAYGDFKKUTaC7NI"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1920px] mx-auto flex flex-col md:flex-row gap-12">
+<!-- Left Filter Panel -->
+<aside class="w-full md:w-80 shrink-0">
+<div class="sticky top-32 space-y-8">
+<div class="editorial-header">
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-primary">
+              Market Filter
+            </h2>
+<p class="text-on-surface-variant font-body text-sm mt-1">
+              Sourcing only the finest produce
+            </p>
+</div>
+<!-- Crop Type -->
+<div class="space-y-4">
+<h3 class="font-headline text-lg font-bold">Crop Type</h3>
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Grains &amp; Cereals</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Pulses &amp; Beans</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Oilseeds</span>
+</label>
+</div>
+</div>
+<!-- Region -->
+<div class="space-y-4">
+<h3 class="font-headline text-lg font-bold">Haryana Districts</h3>
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Karnal (Rice Hub)</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Kurukshetra</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Rohtak</span>
+</label>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-headline font-bold rounded-xl shadow-lg active:scale-95 transition-all">
+            Update Search
+          </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-grow">
+<!-- Header & Sorting -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h1 class="font-headline text-5xl font-black text-primary leading-tight">
+              Haryana Premium
+            </h1>
+<p class="text-on-surface-variant text-lg font-body mt-2">
+              Connecting institutional buyers with verified farmers across the
+              heartland.
+            </p>
+</div>
+<div class="flex items-center space-x-4 bg-surface-container-low p-2 rounded-xl">
+<span class="text-sm font-bold text-outline ml-2">Sort by:</span>
+<select class="bg-transparent border-none text-primary font-bold font-headline focus:ring-0 cursor-pointer">
+<option>Quality Grade</option>
+<option>Price: Low to High</option>
+<option>Distance: Nearest</option>
+</select>
+</div>
+</div>
+<!-- Crop Grid -->
+<div class="editorial-grid">
+<!-- Card 1: 1121 Basmati -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(27,29,14,0.04)] hover:shadow-2xl transition-all flex flex-col border border-stone-200/50">
+<div class="h-64 overflow-hidden relative">
+<img alt="Premium 1121 Basmati Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="extreme close up of long grain premium basmati rice, white pearlescent grains with sharp focus and professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo6GDToK9f01IVcrp7u8-7zJ6vgw2KfzcNeB51-jnlEZW9FHMeTXxNjIXeKcRkAHSPeXyP5QcF2AoFIoxhtPE1R1AJ-P6BNvkMgFRcKvm4LvAumIS3C1c2f9KUmDJBItxh_dkoj-VMYzWsJQBPZ_7BPijhmTKKHWbKcy-QeOAsqSRb6pQHLvH0EICfYup2kZ8VUOivc1Ea5gPlIEvGtv3mHh63tsNooTxPg_4t31Wbr24k896KU0w6DXryLpcw_3UyFUpZD52tOXg"/>
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-lg text-xs font-bold font-label uppercase tracking-widest shadow-sm">
+                Grade A++
+              </div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-2xl font-extrabold text-primary">
+                    1121 Basmati
+                  </h3>
+<p class="text-outline font-label text-xs uppercase tracking-widest mt-1">
+                    Rice • Extra Long Grain
+                  </p>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-black text-secondary">₹7,450</span>
+<p class="text-[10px] text-outline font-bold">PER QUINTAL</p>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">location_on</span>
+<span class="text-sm font-semibold text-on-surface">Karnal, Haryana</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">inventory_2</span>
+<span class="text-sm font-medium">Available: 850 Quintals</span>
+</div>
+</div>
+<button class="w-full mt-auto py-4 bg-primary text-on-primary font-headline font-extrabold rounded-xl flex items-center justify-center space-x-3 hover:bg-secondary transition-all active:scale-[0.98] shadow-md">
+<span class="material-symbols-outlined text-2xl">call</span>
+<span>Contact Verified Farmer</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Sharbati Wheat -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(27,29,14,0.04)] hover:shadow-2xl transition-all flex flex-col border border-stone-200/50">
+<div class="h-64 overflow-hidden relative">
+<img alt="Gold Sharbati Wheat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="close up of golden wheat grains in a heap, warm evening sunlight creating deep shadows and highlighting the texture of the grains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDBpD6Fir0keWd6z5gf37i7h-mSiNL3o1rWP3TIDb1sqcSr9wsYQUpzbx2JddDrOVcXXanMkj64Xmzf1Pyqk5VaFpNyHjRtUd--yClmKCTB7VwossFjkMYMNPkLLXDthx9n2JKSdVXeifwuC2hbg5ec3IuFq1oBV42raipWYEvPStTahHtwVhV4TFueVd8tYT4l2F2WU_NNLCQBZacI9OfMdKgkTZfp0a-1zhcAorGow7YHSP-4cE8p6V8IQFltAqBqA9LDcAq5lU"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold font-label uppercase tracking-widest shadow-sm">
+                Fresh Harvest
+              </div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-2xl font-extrabold text-primary">
+                    Sharbati Wheat
+                  </h3>
+<p class="text-outline font-label text-xs uppercase tracking-widest mt-1">
+                    Grains • Premium Variety
+                  </p>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-black text-secondary">₹2,980</span>
+<p class="text-[10px] text-outline font-bold">PER QUINTAL</p>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">location_on</span>
+<span class="text-sm font-semibold text-on-surface">Kurukshetra, Haryana</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">inventory_2</span>
+<span class="text-sm font-medium">Available: 1,200 Quintals</span>
+</div>
+</div>
+<button class="w-full mt-auto py-4 bg-primary text-on-primary font-headline font-extrabold rounded-xl flex items-center justify-center space-x-3 hover:bg-secondary transition-all active:scale-[0.98] shadow-md">
+<span class="material-symbols-outlined text-2xl">call</span>
+<span>Contact Verified Farmer</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Mustard -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(27,29,14,0.04)] hover:shadow-2xl transition-all flex flex-col border border-stone-200/50">
+<div class="h-64 overflow-hidden relative">
+<img alt="High Oil Content Mustard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="vibrant dark brown and black mustard seeds filling the frame, glossy texture under bright natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYWYpxUs6PCWyV1fKurQMimh-6G2zz5oAgGPhDADh2KwtE9qnqIMOAdDrC8Dx-IjuQa8IhOk19wgPPB2e8YJbQ7uEP1xaThQ64YcpOgAKCJlUystjKvPpPzrPSLMvAykJuFZecTOz0jevDsmelCwzJGNCCzzRLGXwbSCZVOo40PswRPp2_kjquvMPrKeEVXDUoA-zsktYEUIPeQYb8AoCnzP5CTtKP8WqxTLbWGG48FyLawrvUU2K5vGIZ4M-1xZybKf9bQrbVgU4"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-lg text-xs font-bold font-label uppercase tracking-widest shadow-sm">
+                High Oil %
+              </div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-2xl font-extrabold text-primary">
+                    Mustard (Pusa)
+                  </h3>
+<p class="text-outline font-label text-xs uppercase tracking-widest mt-1">
+                    Oilseeds • Heavy Grade
+                  </p>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-black text-secondary">₹5,650</span>
+<p class="text-[10px] text-outline font-bold">PER QUINTAL</p>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">location_on</span>
+<span class="text-sm font-semibold text-on-surface">Rohtak, Haryana</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary/70">inventory_2</span>
+<span class="text-sm font-medium">Available: 450 Quintals</span>
+</div>
+</div>
+<button class="w-full mt-auto py-4 bg-primary text-on-primary font-headline font-extrabold rounded-xl flex items-center justify-center space-x-3 hover:bg-secondary transition-all active:scale-[0.98] shadow-md">
+<span class="material-symbols-outlined text-2xl">call</span>
+<span>Contact Verified Farmer</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center space-x-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex space-x-2">
+<span class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary font-bold">1</span>
+<span class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container-high transition-all cursor-pointer font-bold">2</span>
+<span class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container-high transition-all cursor-pointer font-bold">3</span>
+<span class="w-12 h-12 flex items-center justify-center text-primary font-bold">...</span>
+<span class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container-high transition-all cursor-pointer font-bold">8</span>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbfbe2]/95 backdrop-blur-md border-t border-stone-200/30 z-50">
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="1.html">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium font-body">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="2.html">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-medium font-body">Mandi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 px-4 py-2" href="5.html">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-medium font-body">Prices</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1B5E20] text-white rounded-2xl px-6 py-2" href="4.html">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-medium font-body">Sell</span>
+</a>
+</nav>
+<script defer="" src="agri-market.js"></script></body>
+</html>
