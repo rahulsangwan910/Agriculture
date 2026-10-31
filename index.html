@@ -1,0 +1,1111 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AgriMarket - Farmer Dashboard (Haryana)</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#00731e",
+              "on-tertiary-container": "#ffaec6",
+              "surface-bright": "#fbfbe2",
+              "on-tertiary-fixed": "#3e001d",
+              "primary-container": "#1b5e20",
+              "on-secondary-fixed-variant": "#005313",
+              "inverse-on-surface": "#f2f2d9",
+              tertiary: "#6b1d3d",
+              error: "#ba1a1a",
+              "surface-container-highest": "#e4e4cc",
+              "surface-container-low": "#f5f5dc",
+              outline: "#717a6d",
+              "on-secondary-fixed": "#002204",
+              surface: "#fbfbe2",
+              "on-primary-fixed": "#002203",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e4e4cc",
+              "tertiary-container": "#883454",
+              "on-surface": "#1b1d0e",
+              "primary-fixed": "#acf4a4",
+              "surface-container-high": "#eaead1",
+              "primary-fixed-dim": "#91d78a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#90d689",
+              "on-primary-fixed-variant": "#0c5216",
+              "surface-tint": "#2a6b2c",
+              "error-container": "#ffdad6",
+              "secondary-container": "#91f78e",
+              "tertiary-fixed": "#ffd9e2",
+              "tertiary-fixed-dim": "#ffb1c8",
+              "surface-dim": "#dbdcc3",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#91d78a",
+              "surface-container": "#efefd7",
+              "secondary-fixed": "#94f990",
+              background: "#fbfbe2",
+              "secondary-fixed-dim": "#78dc77",
+              "on-surface-variant": "#41493e",
+              primary: "#00450d",
+              "on-tertiary-fixed-variant": "#7a2949",
+              "outline-variant": "#c0c9bb",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1b1d0e",
+              secondary: "#006e1c",
+              "inverse-surface": "#303221",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #fbfbe2;
+        color: #1b1d0e;
+        background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAjrXLygRn1ByYj2Cer13tQ8-H212-Otqtz18HLSmaE6JvZbMUoZ84g4TYPKELYOGexNVFC5SBObebF35Q3xw-44coWkkgsnR1BO3VdqoNKF86mru-BSLnuuISxhNx6L2PpiIbDIqGe_i3dDVWrXR5ZYpcnXRct9khYwViHiQ85STbv8IOnGhfynD_DYWcblEPKadBOvfUqzEexm3tUXOJ698WwZuNpoaF14CSF2uMzwGSKKvmbYLkNdffyyJUVAV1ZP3N_orMyIBM);
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          rgba(27, 94, 32, 0.05) 0%,
+          rgba(251, 251, 226, 0) 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="font-body selection:bg-secondary-container">
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-[#fbfbe2]/80 backdrop-blur-xl dark:bg-stone-900/80 shadow-sm border-b border-stone-200/50"
+    >
+      <div
+        class="flex justify-between items-center px-8 h-20 max-w-[1920px] mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <span
+            class="text-2xl font-black text-[#00450d] dark:text-green-500 font-headline"
+            >AgriMarket</span
+          >
+          <div
+            class="hidden lg:flex items-center gap-6 font-headline font-semibold tracking-tight"
+          >
+            <a
+              class="text-[#00450d] dark:text-green-400 border-b-2 border-[#00450d] pb-1"
+              href="index.html"
+              >Dashboard</a
+            >
+            <a
+              class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors"
+              href="2.html"
+              >Mandi Finder</a
+            >
+            <a
+              class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors"
+              href="5.html"
+              >Price Tracker</a
+            >
+            <a
+              class="text-stone-600 dark:text-stone-400 hover:text-[#00450d] transition-colors"
+              href="4.html"
+              >Listings</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="px-4 py-2 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 rounded-lg transition-colors flex items-center gap-2 text-stone-600 font-medium"
+          >
+            <span class="material-symbols-outlined">translate</span>
+            <span>Hindi/English</span>
+          </button>
+          <div
+            class="flex items-center gap-2 border-l border-stone-200/50 pl-4"
+          >
+            <span
+              class="material-symbols-outlined p-2 hover:bg-stone-100/50 rounded-full cursor-pointer"
+              >notifications</span
+            >
+            <div
+              class="h-10 w-10 rounded-full bg-primary-container overflow-hidden border-2 border-surface-container-highest"
+            >
+              <img
+                alt="Farmer User Profile"
+                data-alt="Close up portrait of a senior Indian farmer with a warm smile, wearing traditional white kurta, soft cinematic natural lighting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGTYkWLLBWEMJ7y2TNrsxDqn3mqouxbqXDPVuzSeCS4FREx8xdc7suv4CNetx55zQSPs38VHQNTt3TCenYM5ZgxZoI-0QCpEmUf7oANr0DFBh6hdwj9IeALyjQCFcgoGGOluB4CPSnHYGqznvrmNkBvJDLnEeJ0_-JqbJUyI9eTvUaFV6nv2ipaoOydTjA65jOi3RSkeYmmalD2p-ZzRzap3n8bgFpfeM9d0i80ml60DaSk7Dp5Q_KP13xNzhud9cckJ8nsMnYks"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- SideNavBar (Desktop Only) -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-[#fbfbe2] dark:bg-stone-950 shadow-[12px_0_32px_rgba(27,29,14,0.04)] hidden xl:flex flex-col py-8 pl-4 pr-0 z-40"
+    >
+      <div class="mt-20 flex flex-col h-full">
+        <div class="mb-10 px-4">
+          <h2 class="font-headline font-bold text-xl text-[#00450d]">
+            Digital Agronomist
+          </h2>
+          <p
+            class="text-xs text-stone-500 font-medium uppercase tracking-widest mt-1"
+          >
+            Premium Field Journal
+          </p>
+        </div>
+        <nav class="flex-1 space-y-2 font-['Inter'] text-sm tracking-wide">
+          <a
+            class="flex items-center gap-4 py-3 px-6 bg-[#1B5E20] text-white rounded-l-full font-bold shadow-lg"
+            href="index.html"
+          >
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Dashboard</span>
+          </a>
+          <a
+            class="flex items-center gap-4 py-3 px-6 text-stone-600 dark:text-stone-400 hover:translate-x-1 transition-transform"
+            href="2.html"
+          >
+            <span class="material-symbols-outlined">location_on</span>
+            <span>Mandi Finder</span>
+          </a>
+          <a
+            class="flex items-center gap-4 py-3 px-6 text-stone-600 dark:text-stone-400 hover:translate-x-1 transition-transform"
+            href="5.html"
+          >
+            <span class="material-symbols-outlined">trending_up</span>
+            <span>Price Tracker</span>
+          </a>
+          <a
+            class="flex items-center gap-4 py-3 px-6 text-stone-600 dark:text-stone-400 hover:translate-x-1 transition-transform"
+            href="4.html"
+          >
+            <span class="material-symbols-outlined">agriculture</span>
+            <span>Sell Crops</span>
+          </a>
+        </nav>
+        <div class="mt-auto px-4 pb-4">
+          <button
+            class="w-full bg-primary-container text-white py-4 rounded-xl font-bold shadow-xl hover:brightness-110 active:scale-95 transition-all mb-8"
+          >
+            List New Crop
+          </button>
+          <div class="space-y-4 pt-4 border-t border-stone-200">
+            <a
+              class="flex items-center gap-3 text-stone-500 text-sm hover:text-primary transition-colors"
+              href="5.html"
+            >
+              <span class="material-symbols-outlined text-xl">settings</span>
+              <span>Settings</span>
+            </a>
+            <a
+              class="flex items-center gap-3 text-stone-500 text-sm hover:text-primary transition-colors"
+              href="5.html"
+            >
+              <span class="material-symbols-outlined text-xl">help</span>
+              <span>Support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="pt-28 pb-24 xl:pl-72 px-8 min-h-screen hero-gradient">
+      <!-- Header Editorial Moment -->
+      <header class="max-w-6xl mx-auto mb-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-4"
+        >
+          <div>
+            <span
+              class="text-secondary font-bold tracking-widest text-xs uppercase"
+              >Field Overview / क्षेत्र अवलोकन</span
+            >
+            <h1
+              class="text-4xl md:text-5xl font-black text-on-surface font-headline mt-2"
+            >
+              Welcome back, Ranbir Singh.
+            </h1>
+          </div>
+          <div
+            class="bg-white/60 backdrop-blur-md border border-white/40 px-6 py-3 rounded-2xl flex items-center gap-4 shadow-sm"
+          >
+            <div class="flex flex-col">
+              <span
+                class="text-[10px] text-stone-500 font-bold uppercase tracking-tighter"
+                >Current Location</span
+              >
+              <span class="text-sm font-bold text-primary"
+                >Karnal, Haryana</span
+              >
+            </div>
+            <span class="material-symbols-outlined text-secondary"
+              >location_on</span
+            >
+          </div>
+        </div>
+      </header>
+      <!-- Bento Grid Layout -->
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- High Level Metrics -->
+        <div
+          class="md:col-span-4 bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_32px_rgba(27,29,14,0.04)] h-64 border border-stone-100 relative overflow-hidden group"
+        >
+          <div
+            class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity"
+          >
+            <span class="material-symbols-outlined text-[120px]"
+              >agriculture</span
+            >
+          </div>
+          <div class="z-10">
+            <span
+              class="text-xs font-bold text-stone-500 uppercase tracking-widest"
+              >Active Listings / सक्रिय लिस्टिंग</span
+            >
+            <div class="mt-4 flex items-baseline gap-2">
+              <span class="text-6xl font-black font-headline text-primary"
+                >05</span
+              >
+              <span class="text-stone-400 font-semibold">Crops</span>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-2 text-secondary font-bold text-sm z-10"
+          >
+            <span class="material-symbols-outlined">trending_up</span>
+            <span>+2 since last week</span>
+          </div>
+        </div>
+        <div
+          class="md:col-span-8 bg-primary text-white rounded-3xl p-8 flex flex-col justify-between shadow-2xl h-64 relative overflow-hidden"
+        >
+          <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <img
+              alt="Haryana Fields Texture"
+              class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRf9ntFdZlqaxlIT6piwBbvAmYBbEUB5g6XzIcytKYG50zPP_TTx4uOxgWGNzgSRPAeq-oFg0pl9g_NN_X8HhYzzT7n5SK1pBPY2a8dbVyFpay9o2bhI-PTPAJzCWCrVsFE61gFw4OyV5n_VNXDbUK5OcoiwkZgQW5hSvCFGbGbeLz_gAha964JFE3xrW4XvIBR5iNahZTIXblxWWAKCTF4T9aPhAjNwkM5qxB3L6T60ynPV5vN2JpM58UdaLKaW4NweEodDGpKVc"
+            />
+          </div>
+          <div class="z-10">
+            <span
+              class="text-xs font-bold text-green-200 uppercase tracking-widest"
+              >Total Seasonal Sales / कुल मौसमी बिक्री</span
+            >
+            <div class="mt-4">
+              <span class="text-6xl font-black font-headline">₹1,85,000</span>
+            </div>
+          </div>
+          <div class="z-10 flex items-center justify-between">
+            <div class="flex -space-x-2">
+              <div
+                class="h-8 w-8 rounded-full border-2 border-primary bg-stone-200 overflow-hidden"
+                data-alt="profile thumb"
+              >
+                <img
+                  alt="Buyer 1"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzH4S2QCrpSlZaeMJP8nnxLTm9XvOL4sDRURvEQG1NQGCnYT-JZye5e1kvDq-mPRB-j1KwzFTYv7GFv2lQA6t2LkhpkHSoCMFXhBSyrGhKRepCCb7wiehO_XQk7kEpOCjVz4hw4H8-G_22JM1Bmox-JlZ-vRl5sxpn5q4smZGmKQfQUY1xiZvwkL-22Qz0abO_Nnb7ni3XbaMgho5b3wVYApA2M8R1syCE2VHyyOyVVItIAROGG_96EELmwmrnwhW7GHaNJJEez88"
+                />
+              </div>
+              <div
+                class="h-8 w-8 rounded-full border-2 border-primary bg-stone-300 overflow-hidden"
+                data-alt="profile thumb"
+              >
+                <img
+                  alt="Buyer 2"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR_cRLZDNKi9jnvJ17-0yY7HydhF4ha2DhxVlP2SEWRJIS1jwk10viILc8QpSGaqAvBfofNB-uRQdUblcREYtZO0LK37FtzmZZ-HhunhQ94RZpHheuDsx3H3GCdVcm4NapqaSSEQvO7sbRjNNSAkX4flvXrUPfbBzKzYw4az0WsXWtUCS1vp_KPX8LBOfnmGtCju1uAgbyx6Vtx2NJFwWSxfAA6YKjIqeB2ofUrKQ0Gx2h4WZsr2quPnSvY-z9ms4fuy6ogz8JSIw"
+                />
+              </div>
+              <div
+                class="h-8 w-8 rounded-full border-2 border-primary bg-stone-400 overflow-hidden"
+                data-alt="profile thumb"
+              >
+                <img
+                  alt="Buyer 3"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA30rllsUDEmAKB80GlRh7y4XaXa-U1Ehb_kR8EHqTbWi6oKcQK1OmbIQnMup3YRktUjlk2I4b_-S1XWSoppgQc9gF1zmcUQsHiZunF5HlKNGR4vsl2l2Pe9FJId3eiRYOs182E3pTRWgksPq9kDaEtEZeY53PrsiYXfC3vJMNNlcSXc2zYE4F9myq50MaLMDnrERau9CbcMDl-wg3ofQnbUGWjoo8-lc5nIm1Zp665tOpHFK95CScYVl4WlZU_OvAjnc6JoC26zgY"
+                />
+              </div>
+            </div>
+            <button
+              class="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-2 rounded-xl text-sm font-bold transition-all"
+            >
+              View Ledger
+            </button>
+          </div>
+        </div>
+        <!-- Price Watch Section -->
+        <div class="md:col-span-5 space-y-6">
+          <div
+            class="bg-surface-container-low rounded-3xl p-8 border border-stone-200/50"
+          >
+            <div class="flex justify-between items-center mb-8">
+              <h3 class="font-headline font-bold text-xl">
+                Mandi Rates (Karnal) / मंडी दरें
+              </h3>
+              <span class="material-symbols-outlined text-stone-400"
+                >trending_up</span
+              >
+            </div>
+            <div class="space-y-6">
+              <!-- Wheat -->
+              <div class="flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="h-12 w-12 rounded-2xl bg-white flex items-center justify-center text-primary group-hover:shadow-md transition-all"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >agriculture</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-bold">Wheat (गेहूँ)</p>
+                    <p class="text-xs text-stone-500">Karnal Mandi Avg</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-black text-lg">
+                    ₹2,275<span class="text-[10px] text-stone-400">/qt</span>
+                  </p>
+                  <div
+                    class="flex items-center justify-end text-secondary text-xs font-bold"
+                  >
+                    <span class="material-symbols-outlined text-sm"
+                      >arrow_drop_up</span
+                    >
+                    <span>3.1%</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Mustard -->
+              <div class="flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="h-12 w-12 rounded-2xl bg-white flex items-center justify-center text-yellow-600 group-hover:shadow-md transition-all"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >eco</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-bold">Mustard (सरसों)</p>
+                    <p class="text-xs text-stone-500">Local Avg Price</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-black text-lg">
+                    ₹5,450<span class="text-[10px] text-stone-400">/qt</span>
+                  </p>
+                  <div
+                    class="flex items-center justify-end text-secondary text-xs font-bold"
+                  >
+                    <span class="material-symbols-outlined text-sm"
+                      >arrow_drop_up</span
+                    >
+                    <span>1.2%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="w-full mt-10 py-3 border-2 border-outline-variant text-stone-600 rounded-xl font-bold text-sm hover:bg-white transition-colors"
+            >
+              Configure Alerts
+            </button>
+          </div>
+          <!-- Weather Card Overlay -->
+          <div
+            class="bg-surface-container-highest rounded-3xl p-8 h-48 flex flex-col justify-center bg-[url('https://images.unsplash.com/photo-1595123550441-d377e017de6a?auto=format&amp;fit=crop&amp;q=80&amp;w=800')] bg-cover relative group overflow-hidden shadow-lg"
+          >
+            <div
+              class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors"
+            ></div>
+            <div class="relative z-10 text-white">
+              <div class="flex items-center gap-2">
+                <span class="text-4xl font-black font-headline">32°C</span>
+                <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                  >wb_sunny</span
+                >
+              </div>
+              <p class="font-bold mt-1">Scattered Clouds in Karnal</p>
+              <p
+                class="text-xs text-white/90 mt-4 backdrop-blur-sm bg-black/10 p-2 rounded-lg inline-block"
+              >
+                Ideal for harvesting Wheat over next 48h
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Recent Activity -->
+        <div
+          class="md:col-span-7 bg-surface-container-lowest rounded-3xl p-8 shadow-[0_12px_32px_rgba(27,29,14,0.04)] border border-stone-100"
+        >
+          <div class="flex justify-between items-center mb-8">
+            <h3 class="font-headline font-bold text-xl">
+              Recent Activity / हाल की गतिविधि
+            </h3>
+            <button
+              class="text-xs font-bold text-primary uppercase tracking-widest"
+            >
+              View All
+            </button>
+          </div>
+          <div class="space-y-1">
+            <!-- Activity Item 1 -->
+            <div
+              class="flex items-start gap-4 p-4 hover:bg-surface-container-low rounded-2xl transition-colors"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >check_circle</span
+                >
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <p class="font-bold text-sm">Sold 45 Quintals Wheat</p>
+                  <span class="text-[10px] text-stone-400 font-medium"
+                    >1H AGO</span
+                  >
+                </div>
+                <p class="text-xs text-stone-500 mt-1">
+                  Transaction #HR-KAR-8821 successfully completed at Karnal
+                  Mandi.
+                </p>
+              </div>
+            </div>
+            <!-- Activity Item 2 -->
+            <div
+              class="flex items-start gap-4 p-4 hover:bg-surface-container-low rounded-2xl transition-colors"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0"
+              >
+                <span class="material-symbols-outlined text-lg">mail</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <p class="font-bold text-sm">
+                    New Inquiry: Pusa Basmati 1121
+                  </p>
+                  <span class="text-[10px] text-stone-400 font-medium"
+                    >4H AGO</span
+                  >
+                </div>
+                <p class="text-xs text-stone-500 mt-1">
+                  Exporters from Panipat requested price quote for bulk order
+                  (200 qt).
+                </p>
+                <div class="mt-3 flex gap-2">
+                  <button
+                    class="px-3 py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg"
+                  >
+                    Reply Now
+                  </button>
+                  <button
+                    class="px-3 py-1.5 border border-outline-variant text-stone-600 text-[10px] font-bold rounded-lg"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Activity Item 3 -->
+            <div
+              class="flex items-start gap-4 p-4 hover:bg-surface-container-low rounded-2xl transition-colors"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0"
+              >
+                <span class="material-symbols-outlined text-lg">payments</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <p class="font-bold text-sm">Payment Received: ₹42,800</p>
+                  <span class="text-[10px] text-stone-400 font-medium"
+                    >YESTERDAY</span
+                  >
+                </div>
+                <p class="text-xs text-stone-500 mt-1">
+                  DBT Transfer for Mustard seed auction from Haryana Mandi
+                  Board.
+                </p>
+              </div>
+            </div>
+            <!-- Activity Item 4 -->
+            <div
+              class="flex items-start gap-4 p-4 hover:bg-surface-container-low rounded-2xl transition-colors"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-surface-container-high flex items-center justify-center text-stone-500 shrink-0"
+              >
+                <span class="material-symbols-outlined text-lg">info</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <p class="font-bold text-sm">
+                    Mandi Notice: Election Holiday
+                  </p>
+                  <span class="text-[10px] text-stone-400 font-medium"
+                    >2D AGO</span
+                  >
+                </div>
+                <p class="text-xs text-stone-500 mt-1">
+                  Karnal New Grain Market will remain closed this Friday for
+                  local panchayat elections.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbfbe2]/90 backdrop-blur-md z-50 border-t border-stone-200/30"
+    >
+      <a
+        class="flex flex-col items-center justify-center bg-[#1B5E20] text-white rounded-2xl px-6 py-2 transition-all"
+        href="1.html"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <span class="text-[10px] font-medium font-['Inter']">Home</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-stone-500 px-4 py-2"
+        href="2.html"
+      >
+        <span class="material-symbols-outlined">storefront</span>
+        <span class="text-[10px] font-medium font-['Inter']">Mandi</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-stone-500 px-4 py-2"
+        href="4.html"
+      >
+        <span class="material-symbols-outlined">add_circle</span>
+        <span class="text-[10px] font-medium font-['Inter']">Sell</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-stone-500 px-4 py-2"
+        href="5.html"
+      >
+        <span class="material-symbols-outlined">insights</span>
+        <span class="text-[10px] font-medium font-['Inter']">Prices</span>
+      </a>
+    </nav>
+    <!-- Floating Action Button (FAB) -->
+    <button
+      class="fixed bottom-24 right-8 h-16 w-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-95 transition-all xl:hidden"
+    >
+      <span class="material-symbols-outlined text-3xl">add</span>
+    </button>
+    <script>
+(() => {
+  const page = (location.pathname.split('/').pop() || '1.html').toLowerCase();
+  const storage = {
+    listingsHtml: 'agriMarketListingsHtml',
+    adminDraft: 'agriMarketAdminDraft',
+    language: 'agriMarketLanguage',
+  };
+
+  const routes = {
+    '1.html': '1.html',
+    '2.html': '2.html',
+    '3.html': '3.html',
+    '4.html': '4.html',
+    '5.html': '5.html',
+  };
+
+  function normalize(text) {
+    return String(text || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
+  function toast(message) {
+    let host = document.getElementById('agri-toast-host');
+    if (!host) {
+      host = document.createElement('div');
+      host.id = 'agri-toast-host';
+      host.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;';
+      document.body.appendChild(host);
+    }
+    const item = document.createElement('div');
+    item.textContent = message;
+    item.style.cssText = 'background:#1b5e20;color:#fff;padding:12px 16px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.16);font:600 14px Inter, sans-serif;max-width:320px;pointer-events:none;transform:translateY(8px);opacity:0;transition:all .25s ease;';
+    host.appendChild(item);
+    requestAnimationFrame(() => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+    });
+    setTimeout(() => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(8px)';
+      setTimeout(() => item.remove(), 250);
+    }, 2600);
+  }
+
+  function setActiveLinks() {
+    const current = routes[page] || page;
+    document.querySelectorAll('a[href$=".html"]').forEach((a) => {
+      const href = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
+      const isCurrent = href === current;
+      a.dataset.active = isCurrent ? 'true' : 'false';
+      if (isCurrent) {
+        a.setAttribute('aria-current', 'page');
+      } else {
+        a.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function bindTextButtons(matchText, handler) {
+    document.querySelectorAll('button').forEach((btn) => {
+      const label = normalize(btn.textContent);
+      if (label.includes(normalize(matchText))) {
+        btn.addEventListener('click', handler);
+      }
+    });
+  }
+
+  function buttonLabel(btn) {
+    return normalize(btn?.textContent || btn?.innerText || btn?.title || '');
+  }
+
+  function navTo(url, message) {
+    if (message) toast(message);
+    setTimeout(() => { location.href = url; }, 120);
+  }
+
+  function initDashboard() {
+    bindTextButtons('list new crop', () => navTo('4.html', 'Opening crop listings…'));
+    bindTextButtons('view ledger', () => navTo('4.html', 'Opening inventory ledger…'));
+    bindTextButtons('configure alerts', () => navTo('5.html', 'Opening alert controls…'));
+    bindTextButtons('view all', () => navTo('2.html', 'Showing the full mandi feed…'));
+    bindTextButtons('reply now', () => toast('Reply drafted.'));
+    bindTextButtons('details', () => navTo('3.html', 'Opening market details…'));
+
+    const translateBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('hindi/english'));
+    if (translateBtn) {
+      translateBtn.addEventListener('click', () => {
+        const mode = (localStorage.getItem(storage.language) || 'en') === 'en' ? 'hi' : 'en';
+        localStorage.setItem(storage.language, mode);
+        translateBtn.querySelectorAll('span').forEach((s) => {
+          if (normalize(s.textContent).includes('hindi/english')) {
+            s.textContent = mode === 'en' ? 'Hindi/English' : 'हिंदी/English';
+          }
+        });
+        toast(mode === 'en' ? 'Language set to English.' : 'भाषा हिंदी में बदल दी गई।');
+      });
+    }
+
+    bindTextButtons('notifications', () => toast('You have 3 new updates.'));
+  }
+
+  function initMandiFinder() {
+    const searchBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('search mandis'));
+    const locationInput = document.querySelector('input[type="text"]');
+    const cropSelect = document.querySelector('select');
+    const resultBadge = [...document.querySelectorAll('span')].find((s) => /results found/i.test(s.textContent || ''));
+    const cardNodes = [...document.querySelectorAll('main .md\\:col-span-4 .cursor-pointer')];
+    const tableRows = [...document.querySelectorAll('tbody tr')];
+
+    function applyFilters() {
+      const query = normalize(locationInput?.value || '');
+      const crop = normalize(cropSelect?.value || 'all');
+      let visibleCards = 0;
+
+      cardNodes.forEach((card) => {
+        const text = normalize(card.textContent);
+        const show = !query || text.includes(query.split(' ')[0]) || text.includes('haryana') || text.includes('karnal') || text.includes('hisar') || text.includes('rohtak');
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCards += 1;
+      });
+
+      tableRows.forEach((row) => {
+        const text = normalize(row.textContent);
+        const cropMatch = crop === 'all' || text.includes(crop.split(' ')[0]) || text.includes('wheat') || text.includes('mustard') || text.includes('basmati');
+        const locationMatch = !query || text.includes(query.split(',')[0]) || text.includes(query.split(' ')[0]);
+        row.style.display = cropMatch && locationMatch ? '' : 'none';
+      });
+
+      if (resultBadge) resultBadge.textContent = `${visibleCards} Results Found`;
+      toast(`Showing ${visibleCards} nearby mandis.`);
+    }
+
+    if (searchBtn) searchBtn.addEventListener('click', applyFilters);
+    locationInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') applyFilters();
+    });
+    cropSelect?.addEventListener('change', applyFilters);
+
+    [...document.querySelectorAll('button')].forEach((btn) => {
+      const label = buttonLabel(btn);
+      if (label === 'call') {
+        btn.addEventListener('click', () => toast('Calling the mandi office…'));
+      }
+      if (label === 'route') {
+        btn.addEventListener('click', () => toast('Opening route directions…'));
+      }
+      if (label === 'map') {
+        btn.addEventListener('click', () => toast('Refreshing the live mandi map…'));
+      }
+      if (label === 'today' || label === 'last 7 days') {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('button').forEach((b) => {
+            const t = buttonLabel(b);
+            if (t === 'today' || t === 'last 7 days') {
+              b.classList.remove('bg-surface-container-lowest', 'border', 'border-outline-variant/10', 'rounded-lg', 'text-xs', 'font-bold', 'text-primary', 'shadow-sm');
+              b.classList.add('text-on-surface-variant');
+            }
+          });
+          btn.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant/10', 'rounded-lg', 'text-xs', 'font-bold', 'text-primary', 'shadow-sm');
+          btn.classList.remove('text-on-surface-variant');
+          toast(`${btn.textContent.trim()} view selected.`);
+        });
+      }
+    });
+
+    applyFilters();
+  }
+
+  function initMarketplace() {
+    const cardsGrid = document.querySelector('.editorial-grid');
+    if (!cardsGrid) return;
+    const cards = [...cardsGrid.children];
+    const sortSelect = document.querySelector('select');
+    const updateBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('update search'));
+    const prevBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('chevron_left'));
+    const nextBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('chevron_right'));
+    const cropInputs = [...document.querySelectorAll('aside input[type="checkbox"]')].slice(0, 3);
+    const districtInputs = [...document.querySelectorAll('aside input[type="checkbox"]')].slice(3);
+
+    const originalOrder = [...cards];
+
+    function getCardText(card) {
+      return normalize(card.textContent);
+    }
+
+    function priceOf(card) {
+      const m = card.textContent.replace(/,/g, '').match(/₹\s*([0-9]+(?:\.[0-9]+)?)/);
+      return m ? Number(m[1]) : 0;
+    }
+
+    function cropCategory(cardText) {
+      if (/mustard|oilseed/i.test(cardText)) return 'oilseeds';
+      if (/wheat|basmati|rice|grain/i.test(cardText)) return 'grains';
+      return 'pulses';
+    }
+
+    function district(cardText) {
+      if (/karnal/i.test(cardText)) return 'karnal';
+      if (/kurukshetra/i.test(cardText)) return 'kurukshetra';
+      if (/rohtak/i.test(cardText)) return 'rohtak';
+      return 'other';
+    }
+
+    function render() {
+      const selectedCrops = cropInputs.filter((i) => i.checked).map((i) => normalize(i.closest('label')?.textContent));
+      const selectedDistricts = districtInputs.filter((i) => i.checked).map((i) => normalize(i.closest('label')?.textContent));
+
+      const visibleCards = cards.filter((card) => {
+        const text = getCardText(card);
+        const cropOk = !selectedCrops.length || selectedCrops.some((label) => {
+          if (label.includes('grain')) return cropCategory(text) === 'grains';
+          if (label.includes('pulse')) return cropCategory(text) === 'pulses';
+          if (label.includes('oilseed')) return cropCategory(text) === 'oilseeds';
+          return true;
+        });
+        const districtOk = !selectedDistricts.length || selectedDistricts.some((label) => {
+          if (label.includes('karnal')) return district(text) === 'karnal';
+          if (label.includes('kurukshetra')) return district(text) === 'kurukshetra';
+          if (label.includes('rohtak')) return district(text) === 'rohtak';
+          return true;
+        });
+        card.style.display = cropOk && districtOk ? '' : 'none';
+        return cropOk && districtOk;
+      });
+
+      const order = normalize(sortSelect?.value || '');
+      if (order.includes('low to high')) {
+        [...visibleCards].sort((a, b) => priceOf(a) - priceOf(b)).forEach((card) => cardsGrid.appendChild(card));
+      } else {
+        originalOrder.forEach((card) => cardsGrid.appendChild(card));
+      }
+
+      toast(`Marketplace updated: ${visibleCards.length} listings visible.`);
+    }
+
+    cropInputs.concat(districtInputs).forEach((input) => input.addEventListener('change', render));
+    sortSelect?.addEventListener('change', render);
+    updateBtn?.addEventListener('click', render);
+
+    [...document.querySelectorAll('button')].forEach((btn) => {
+      const label = buttonLabel(btn);
+      if (label.includes('contact verified farmer')) {
+        btn.addEventListener('click', () => toast('Opening buyer contact details…'));
+      }
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      const last = cardsGrid.lastElementChild;
+      if (last) cardsGrid.prepend(last);
+      toast('Moved to previous produce highlight.');
+    });
+    nextBtn?.addEventListener('click', () => {
+      const first = cardsGrid.firstElementChild;
+      if (first) cardsGrid.append(first);
+      toast('Moved to next produce highlight.');
+    });
+
+    render();
+  }
+
+  function createListingRow({ name, qty, origin, current, expected, status }) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary-fixed-dim flex items-center justify-center text-primary-container">
+            <span class="material-symbols-outlined text-xl">agriculture</span>
+          </div>
+          <div>
+            <div class="font-bold text-primary">${name}</div>
+            <div class="text-[10px] uppercase tracking-widest text-on-surface-variant">New Listing</div>
+          </div>
+        </div>
+      </td>
+      <td class="px-6 py-5 text-sm text-on-surface-variant">
+        <div class="font-bold text-on-surface">${qty}</div>
+        <div>${origin}</div>
+      </td>
+      <td class="px-6 py-5 text-sm text-on-surface-variant">
+        <div class="font-bold text-on-surface">${current}</div>
+        <div>Current Mandi Rate</div>
+      </td>
+      <td class="px-6 py-5 text-sm text-on-surface-variant">
+        <div class="font-bold text-on-surface">${expected}</div>
+        <div>${status}</div>
+      </td>
+      <td class="px-6 py-5">
+        <div class="flex gap-2">
+          <button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-white transition-all flex items-center justify-center" title="Edit Metrics">
+            <span class="material-symbols-outlined text-sm">edit</span>
+          </button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-secondary hover:text-white transition-all flex items-center justify-center" title="Mark as Sold">
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+          </button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Delete">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+      </td>`;
+    return tr;
+  }
+
+  function initListings() {
+    const tbody = document.querySelector('table tbody');
+    if (!tbody) return;
+    const buttons = [...document.querySelectorAll('button')];
+    const newRowKey = storage.listingsHtml;
+    const saved = localStorage.getItem(newRowKey);
+    if (saved) tbody.innerHTML = saved;
+
+    function save() {
+      localStorage.setItem(newRowKey, tbody.innerHTML);
+    }
+
+    function promptNewListing() {
+      const name = prompt('Crop name', 'New Crop Listing');
+      if (!name) return;
+      const qty = prompt('Quantity', '50 Quintals') || '50 Quintals';
+      const origin = prompt('Origin', 'Rohtak, Haryana') || 'Rohtak, Haryana';
+      const current = prompt('Current rate', '₹3,100 /quintal') || '₹3,100 /quintal';
+      const expected = prompt('Expected price', '₹3,350 /quintal') || '₹3,350 /quintal';
+      const status = prompt('Status', 'Live') || 'Live';
+      tbody.appendChild(createListingRow({ name, qty, origin, current, expected, status }));
+      save();
+      toast('New listing added.');
+    }
+
+    tbody.addEventListener('click', (event) => {
+      const btn = event.target.closest('button');
+      if (!btn) return;
+      const row = btn.closest('tr');
+      if (!row) return;
+      const title = normalize(btn.title || btn.textContent);
+      const cropCell = row.children[0];
+      const qtyCell = row.children[1];
+      const currentCell = row.children[2];
+      const expectedCell = row.children[3];
+
+      if (title.includes('edit')) {
+        const name = prompt('Update crop name', cropCell?.innerText.split('\n')[0].trim() || 'Updated Listing');
+        const current = prompt('Update current rate', currentCell?.innerText.split('\n')[0].trim() || '₹0 /quintal');
+        if (name && cropCell.querySelector('.font-bold')) cropCell.querySelector('.font-bold').textContent = name;
+        if (current && currentCell.querySelector('.font-bold')) currentCell.querySelector('.font-bold').textContent = current;
+        toast('Listing updated.');
+      } else if (title.includes('sold') || title.includes('check_circle')) {
+        row.classList.toggle('opacity-60');
+        row.classList.toggle('bg-green-50');
+        if (expectedCell) {
+          const lines = expectedCell.querySelectorAll('div');
+          if (lines[1]) lines[1].textContent = row.classList.contains('bg-green-50') ? 'Sold' : 'Live';
+        }
+        toast('Listing status changed.');
+      } else if (title.includes('delete')) {
+        if (confirm('Delete this listing?')) {
+          row.remove();
+          toast('Listing removed.');
+        }
+      }
+      save();
+    });
+
+    buttons.forEach((btn) => {
+      const label = buttonLabel(btn);
+      if (label.includes('list new crop') || label.includes('list new harvest') || label.includes('add detailed listing')) {
+        btn.addEventListener('click', promptNewListing);
+      }
+      if (label.includes('hindi/english')) {
+        btn.addEventListener('click', () => toast('Language toggle is ready.'));
+      }
+    });
+
+    save();
+  }
+
+  function initAdmin() {
+    const inputs = [...document.querySelectorAll('input[type="text"]')];
+    const select = document.querySelector('select');
+    const draftBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('save as local draft'));
+    const submitBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('submit to state exchange'));
+    const reportBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('generate report'));
+    const manageBtn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('manage all hr tradelinks'));
+
+    const saved = JSON.parse(localStorage.getItem(storage.adminDraft) || 'null');
+    if (saved?.inputs?.length) {
+      inputs.forEach((input, i) => { if (saved.inputs[i] != null) input.value = saved.inputs[i]; });
+      if (select && saved.select) select.value = saved.select;
+    }
+
+    function currentDraft() {
+      return {
+        inputs: inputs.map((i) => i.value),
+        select: select?.value || '',
+      };
+    }
+
+    function saveDraft(message = 'Draft saved locally.') {
+      localStorage.setItem(storage.adminDraft, JSON.stringify(currentDraft()));
+      toast(message);
+    }
+
+    inputs.forEach((input) => input.addEventListener('input', () => localStorage.setItem(storage.adminDraft, JSON.stringify(currentDraft()))));
+    select?.addEventListener('change', () => localStorage.setItem(storage.adminDraft, JSON.stringify(currentDraft())));
+
+    draftBtn?.addEventListener('click', () => saveDraft('Draft saved locally.'));
+    submitBtn?.addEventListener('click', () => {
+      localStorage.setItem(storage.adminDraft, JSON.stringify(currentDraft()));
+      toast('Submitted to the state exchange.');
+    });
+    reportBtn?.addEventListener('click', () => {
+      const report = [
+        'AgriMarket Haryana Price Report',
+        `Window: ${select?.value || 'Current'}`,
+        '',
+        ...inputs.map((input, i) => `Band ${i + 1}: ${input.value}`),
+      ].join('\n');
+      const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'agri-market-report.txt';
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      toast('Report downloaded.');
+    });
+    manageBtn?.addEventListener('click', () => navTo('2.html', 'Opening district trade links…'));
+
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('button');
+      if (!btn) return;
+      const icon = normalize(btn.querySelector('.material-symbols-outlined')?.textContent || '');
+      if (icon === 'close' || icon === 'check') {
+        const card = btn.closest('div.bg-surface-container-lowest.p-4, div.bg-surface-container-lowest.p-5');
+        if (card && card.textContent.includes('Trader')) {
+          if (icon === 'close') {
+            card.style.display = 'none';
+            toast('Verification rejected.');
+          } else {
+            card.style.opacity = '0.55';
+            toast('Verification approved.');
+          }
+        }
+      }
+      if (buttonLabel(btn).includes('notifications')) {
+        toast('No new authority alerts.');
+      }
+      if (buttonLabel(btn) === 'en') {
+        toast('English mode selected.');
+      }
+      if (buttonLabel(btn) === 'hr') {
+        toast('Hindi/Haryanvi mode selected.');
+      }
+    });
+  }
+
+  function initCommon() {
+    setActiveLinks();
+    const language = localStorage.getItem(storage.language);
+    if (language === 'hi') {
+      const btn = [...document.querySelectorAll('button')].find((b) => buttonLabel(b).includes('hindi/english'));
+      if (btn) btn.querySelectorAll('span').forEach((s) => { if (/hindi\/english/i.test(s.textContent || '')) s.textContent = 'हिंदी/English'; });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initCommon();
+    if (page === '1.html' || page === 'index.html') initDashboard();
+    if (page === '2.html') initMandiFinder();
+    if (page === '3.html') initMarketplace();
+    if (page === '4.html') initListings();
+    if (page === '5.html') initAdmin();
+  });
+})();
+</script>
+  </body>
+</html>
